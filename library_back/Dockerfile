@@ -1,6 +1,8 @@
-FROM postgres:14.5
-ENV POSTGRES_DB=library_db
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=password
-ENV POSTGRES_HOST=127.0.0.1
-ENV POSTGRES_PORT=5432
+FROM python:3.9.13-buster
+
+WORKDIR /backend
+
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+COPY . .
